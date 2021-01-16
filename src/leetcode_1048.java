@@ -23,10 +23,10 @@ public class leetcode_1048 {
         
         for(int i = 1; i < words.length; i++) {
         	String cur = words[i];
-        	StringBuffer sb;
+        	StringBuilder sb;
         	
         	for(int j = 0; j < cur.length(); j++) {
-        		sb = new StringBuffer(cur);
+        		sb = new StringBuilder(cur);
         		String sub = sb.deleteCharAt(j).toString();
         		
         		if(map.containsKey(sub)) {
