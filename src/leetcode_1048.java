@@ -14,26 +14,20 @@ public class leetcode_1048 {
 	
 	public int longestStrChain(String[] words) {
 		int max = 1;
-		Arrays.sort(words, (s1, s2) -> s1.length() - s2.length());
-        Map<String, Integer> map = new HashMap<String, Integer>();
+		Arrays.sort(words, (s1, s2) -> s1.length() - s2.length());     
+        Map<String, Integer> map = new HashMap<>();
         
-        for(int i = 0; i < words.length; i++) {
-        	map.put(words[i], 1);
-        }
-        
-        for(int i = 1; i < words.length; i++) {
-        	String cur = words[i];
-        	StringBuilder sb;
-        	
+        for(String cur : words) {
+        	map.put(cur, 1);
+            int best = 0;
+            
         	for(int j = 0; j < cur.length(); j++) {
-        		sb = new StringBuilder(cur);
+        		StringBuilder sb = new StringBuilder(cur);
         		String sub = sb.deleteCharAt(j).toString();
-        		
-        		if(map.containsKey(sub)) {
-        			map.put(cur, Math.max(map.get(cur), map.get(sub) + 1));
-        			max = Math.max(max, map.get(sub) + 1);
-        		}
+                best = Math.max(best, map.getOrDefault(sub, 0) + 1);
         	}
+        	map.put(cur, best);
+            max = Math.max(max, best);
         }
         return max;
     }
