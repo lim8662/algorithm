@@ -4,7 +4,6 @@ import java.util.*;
 class boj_2745 {
 
 /*
- *
 진법변환
 N(수) B(진법 2~36)
 A(10) .... Z(35)
