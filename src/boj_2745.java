@@ -4,10 +4,10 @@ import java.util.*;
 class boj_2745 {
 
 /*
-Áø¹ıº¯È¯
-N(¼ö) B(Áø¹ı 2~36)
+ì§„ë²•ë³€í™˜
+N(ìˆ˜) B(ì§„ë²• 2~36)
 A(10) .... Z(35)
-BÁø¹ı¼ö NÀ»  10Áø¹ıÀ¸·Î Ãâ·Â
+Bì§„ë²•ìˆ˜ Nì„  10ì§„ë²•ìœ¼ë¡œ ì¶œë ¥
 */
 	
 	public static void main(String[] args) throws IOException {
