@@ -3,9 +3,9 @@
 import java.util.*;
 
 public class codility_demo_1 {
-	// ¹è¿­¿¡ ¾ø´Â °¡Àå ÀÛÀº ¾çÀÇ Á¤¼ö Ãâ·Â
-	// A : 1~10¸¸
-	// N : -100¸¸ - 100¸¸
+	// ë°°ì—´ì— ì—†ëŠ” ê°€ì¥ ì‘ì€ ì–‘ì˜ ì •ìˆ˜ ì¶œë ¥
+	// A : 1~10ë§Œ
+	// N : -100ë§Œ - 100ë§Œ
 	
 	public static void main(String[] args) {
 		int[] A = {-1, 0, 1, 2, 3};

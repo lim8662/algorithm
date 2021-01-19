@@ -1,21 +1,19 @@
-
-
 import java.io.*;
 import java.util.*;
 
 class boj_1525 {
 
 /*
-ÆÛÁñ °ÔÀÓ
+í¼ì¦ ê²Œì„
 
 1 0 3
 4 2 5
 7 8 6
-°¡
+ê°€
 1 2 3
 4 5 6
 7 8 0
-ÀÌµÇ´Â ÃÖ¼Ò ÀÌµ¿ È½¼ö ¹İÈ¯
+ì´ë˜ëŠ” ìµœì†Œ ì´ë™ íšŸìˆ˜ ë°˜í™˜
 */
 	
 	static HashMap<Integer, Integer> map;
@@ -26,13 +24,13 @@ class boj_1525 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
 		
-		// 2Â÷¿ø ÆÛÁñÀ» 1Â÷¿øÀ¸·Î ¹Ù²ãÁØ´Ù. 
+		// 2ì°¨ì› í¼ì¦ì„ 1ì°¨ì›ìœ¼ë¡œ ë°”ê¿”ì¤€ë‹¤. 
 		int start = 0;
 		for(int i = 0 ; i < 3 ; ++i) {
 			st = new StringTokenizer(br.readLine());
 			for(int j = 0 ; j < 3 ; ++j) {
 				int temp = stoi(st.nextToken());
-				// 0ÀÏ ¶§ 9·Î ¹Ù²ãÁØ´Ù. 
+				// 0ì¼ ë•Œ 9ë¡œ ë°”ê¿”ì¤€ë‹¤. 
 				if(temp == 0) temp = 9;
 				start = (start * 10) + temp;
 			}
@@ -50,20 +48,20 @@ class boj_1525 {
 	
 	private static int bfs() {
 		while(!q.isEmpty()) {
-			// Å¥¿¡¼­ ²¨³½ ÆÛÁñÀÇ »óÅÂ¸¦ ¹®ÀÚ¿­·Î ¹Ù²ã 9ÀÇ À§Ä¡¸¦ Ã£´Â´Ù.
+			// íì—ì„œ êº¼ë‚¸ í¼ì¦ì˜ ìƒíƒœë¥¼ ë¬¸ìì—´ë¡œ ë°”ê¿” 9ì˜ ìœ„ì¹˜ë¥¼ ì°¾ëŠ”ë‹¤.
 			int cur_int = q.poll();
 			String cur = String.valueOf(cur_int);
 			
-			// ÆÛÁñÀÌ ¸ÂÃçÁø »óÅÂÀÏ °æ¿ì ¸Ê¿¡¼­ ½Ã°£À» ²¨³»°í ¸®ÅÏÇÑ´Ù. 
+			// í¼ì¦ì´ ë§ì¶°ì§„ ìƒíƒœì¼ ê²½ìš° ë§µì—ì„œ ì‹œê°„ì„ êº¼ë‚´ê³  ë¦¬í„´í•œë‹¤. 
 			if(cur.equals("123456789")) {
 				return map.get(cur_int);
 			}
 			
 			int nine = cur.indexOf('9');
 			
-			// ÇöÀç 9ÀÇ ÁÂÇ¥¸¦ ¾Ë¾Æ³½´Ù. 
-			// ¸ò ¿¬»êÀº Çà, ³ª¸ÓÁö ¿¬»êÀº ¿­À» ³ªÅ¸³½´Ù.  2 -> (0, 2) 3x3ÁÂÇ¥
-			//1Â÷¿ø ¹è¿­ ÀÎµ¦½º ¹üÀ§ 0~8 -> 2Â÷¿ø 0~2·Î º¯°æ
+			// í˜„ì¬ 9ì˜ ì¢Œí‘œë¥¼ ì•Œì•„ë‚¸ë‹¤. 
+			// ëª« ì—°ì‚°ì€ í–‰, ë‚˜ë¨¸ì§€ ì—°ì‚°ì€ ì—´ì„ ë‚˜íƒ€ë‚¸ë‹¤.  2 -> (0, 2) 3x3ì¢Œí‘œ
+			//1ì°¨ì› ë°°ì—´ ì¸ë±ìŠ¤ ë²”ìœ„ 0~8 -> 2ì°¨ì› 0~2ë¡œ ë³€ê²½
 			int r = nine / 3;
 			int c = nine % 3;
 			
@@ -73,15 +71,15 @@ class boj_1525 {
 				if(nr >= 3 || nr < 0 || nc >= 3 || nc < 0) continue;
 				
 				StringBuilder next_str = new StringBuilder(cur);
-				// r * 3 + c ´Â ÁÂÇ¥ÀÇ 1Â÷¿ø ¹è¿­¿¡¼­ÀÇ À§Ä¡´Ù.
-				// ÀÌÀü 9ÀÇ À§Ä¡¿Í ´ÙÀ½ À§Ä¡ÀÇ ¼ıÀÚ¸¦ ¹Ù²Û´Ù. 
+				// r * 3 + c ëŠ” ì¢Œí‘œì˜ 1ì°¨ì› ë°°ì—´ì—ì„œì˜ ìœ„ì¹˜ë‹¤.
+				// ì´ì „ 9ì˜ ìœ„ì¹˜ì™€ ë‹¤ìŒ ìœ„ì¹˜ì˜ ìˆ«ìë¥¼ ë°”ê¾¼ë‹¤. 
 				char temp = next_str.charAt(nr * 3 + nc);
 				next_str.setCharAt(nr * 3 + nc, '9');
 				next_str.setCharAt(nine, temp);
 				
 				int next = stoi(next_str.toString());
 				
-				// ³ª¿ÂÀû ¾ø´Â ÆÛÁñÀÇ »óÅÂÀÎ °æ¿ì¿¡´Â ¸Ê¿¡ Ãß°¡ÇÑ´Ù. 
+				// ë‚˜ì˜¨ì  ì—†ëŠ” í¼ì¦ì˜ ìƒíƒœì¸ ê²½ìš°ì—ëŠ” ë§µì— ì¶”ê°€í•œë‹¤. 
 				if(!map.containsKey(next)){
 					map.put(next, map.get(cur_int) + 1);
 					q.offer(next);
