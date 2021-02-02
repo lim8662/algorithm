@@ -1,9 +1,17 @@
+package SWEA;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class swea_D3_1289 {
-	
+/*
+2
+0011
+100
+
+*/
+//	원재의 메모리 복구 
 	static char[] target, init;
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
