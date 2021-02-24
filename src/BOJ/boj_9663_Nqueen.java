@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class boj_9663_Nqueen {
-	static int N, cnt, area;
+	static int N, cnt;
 	static int[] queen; // 각 행에서 퀸의 열 위치를 표시
 
 	public static void main(String[] args) throws NumberFormatException, IOException {

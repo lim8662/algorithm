@@ -12,6 +12,7 @@ public class boj_15686_delivery {
 	static ArrayList<int[]> home = new ArrayList<>(); // 집의 위치
 	static ArrayList<int[]> branch = new ArrayList<>(); // 치킨집 위치
 	static int[] picked; // 선택된 치킨집
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 		StringTokenizer st = new StringTokenizer(br.readLine());
