@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class boj_15681_treeAndQuery {
 
 	static int N, R, Q, v1, v2;
-	static ArrayList<Integer>[] edge; // 간선 저장
+	static List<Integer>[] edge; // 간선 저장
 	static int dp[]; // 서브 트리 정점 수;
 	
 	
