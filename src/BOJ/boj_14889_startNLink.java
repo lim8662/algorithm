@@ -40,8 +40,6 @@ public class boj_14889_startNLink {
 		}
 	}
 	private static void analysis() {
-		int[] opponents = new int[M]; // 상대팀
-		int idx = 0;
 		boolean[] picked = new boolean[N];
 		for (int i = 0; i < M; i++) 
 			picked[startTeam[i]] = true;
