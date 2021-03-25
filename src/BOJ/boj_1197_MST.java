@@ -14,7 +14,6 @@ public class boj_1197_MST {
 		int v1, v2, w;
 
 		public Edge(int v1, int v2, int w) {
-			super();
 			this.v1 = v1;
 			this.v2 = v2;
 			this.w = w;

@@ -17,7 +17,7 @@ public class boj_1074_Z {
 		int size = (int) Math.pow(2, N); // 배열 크기
 		System.out.println(z(size, r, c));
 	}
-	// 분할 정복
+	
 	public static int z(int n, int x, int y) { // n은 영역 크기 / x,y는 방문 좌표
 		if(n == 2) { // 최소 z단위면 
 			for(int i = 0; i < 4; i++) {
@@ -27,16 +27,20 @@ public class boj_1074_Z {
 		int std = n/2; // 영역 구분선
 		int area = std * std; // 한 영역의 칸수
 		if(x < std) { // 찾는 칸의 위치가 
-			if(y < std)  // 좌상단이면
-				return z(std,x,y);	
-			else  // 우상단이면
-				return z(std,x,y-std) + area;		
+			if(y < std) { // 좌상단이면
+				return z(std,x,y);
+			}
+			else { // 우상단이면
+				return z(std,x,y-std) + area;
+			}
 		}
 		else { 
-			if(y < std)  // 좌하단이면
-				return z(std,x-std,y) + area*2;		
-			else  // 우하단이면
-				return z(std,x-std,y-std) + area*3;			
+			if(y < std) { // 좌하단이면
+				return z(std,x-std,y) + area*2;
+			}
+			else { // 우하단이면
+				return z(std,x-std,y-std) + area*3;
+			}
 		}
 	}
 }
