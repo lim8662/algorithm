@@ -9,10 +9,7 @@ public class boj_2293_coin1 {
 	static int N, K;
 	static int[][] DP;
 	static int[] coin;
-	
-	// 2h+ 부분 문제로 나누고 성립하는지 다양한 케이스를 시뮬레이션 하면서 시간 소모
-	// 조건을 나누어서 생각하면 되는데 남은 금액이 0이 되는 것까지 일반화하려다 시간 낭비
-	
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 		StringTokenizer st = new StringTokenizer(br.readLine());

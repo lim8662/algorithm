@@ -22,19 +22,19 @@ class boj_3613_str {
 			return;
 		}
 		
-		if(str.matches("^[a-z][a-zA-Z]*$")) { // Java
-			char[] chars = str.toCharArray();
-			
-			for (int i = 0; i < chars.length; i++) {
-				if( Character.isUpperCase(chars[i]) ) { // 대문자 찾으면 (_소문자)로 변경
-					out.append('_').append( Character.toLowerCase(chars[i]) );
-				} else 
-					out.append(chars[i]);
-			}
-			System.out.println(out.toString());
-			return;
-		}
-		System.out.println("Error!");
+if(str.matches("^[a-z][a-zA-Z]*$")) { // Java
+	char[] chars = str.toCharArray();
+	
+	for (int i = 0; i < chars.length; i++) {
+		if( Character.isUpperCase(chars[i]) ) { // 대문자 찾으면 (_소문자)로 변경
+			out.append('_').append( Character.toLowerCase(chars[i]) );
+		} else 
+			out.append(chars[i]);
+	}
+	System.out.println(out.toString());
+	return;
+}
+System.out.println("Error!");
 	}
 }	
 
