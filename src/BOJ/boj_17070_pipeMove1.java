@@ -27,20 +27,7 @@ public class boj_17070_pipeMove1 {
 				if(map[i][j] == -1) pos = i;
 			}
 		}
-		
-		while(T > 0) { // T초만큼 시뮬레이션	
-			
-			T--;
-		}
-		
-		
-		int total = 0; // 남은 미세먼지 총량
-		for (int i = 0; i < R; i++) {
-			for (int j = 0; j < C; j++) {
-				if( map[i][j] > 0 ) total += map[i][j];
-			}
-		}
-		System.out.println(total);
+
 	}
 
 	
