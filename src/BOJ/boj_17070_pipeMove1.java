@@ -21,15 +21,13 @@ public class boj_17070_pipeMove1 {
 		}	
 	}
 	
-	static int N, cnt;
-	static int[][] map, tmap;
-	static final int[] dx = {1, 0, 1};
-	static final int[] dy = {0, 1, 1};
+	static int N, cnt, map[][], dp[][][];
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 		
 		N = Integer.parseInt(br.readLine()); 
 		map = new int[N][N];
+		dp = new int[N][N][3];
 		
 		StringTokenizer st;
 		for (int i = 0; i < N; i++) { // 맵 입력
@@ -38,9 +36,14 @@ public class boj_17070_pipeMove1 {
 				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		bfs();
-		
+		//bfs();
+		dp();
 		System.out.println(cnt);
+	}
+
+	private static void dp() {
+		
+		
 	}
 
 	private static void bfs() {
@@ -51,7 +54,7 @@ public class boj_17070_pipeMove1 {
 		int cx = 0, cy = 0, nx = 0, ny = 0;
 		while(!q.isEmpty()) {
 			cur = q.poll();
-			System.out.println(cur.x + " " + cur.y);
+			
 			if(cur.x == N-1 && cur.y == N-1) { // 도작점이면 경우의수 증가
 				cnt++; continue;
 			}
@@ -64,28 +67,27 @@ public class boj_17070_pipeMove1 {
 				if(cy + 1 < N && map[cx][cy+1] == 0)  // 가로 이동
 					q.add(new Pipe(cx, cy + 1, 'h'));
 				
-				if(cx + 1 < N || cy + 1 < N && map[cx+1][cy+1] == 0 && map[cx+1][cy] == 0 && map[cx][cy+1] == 0)
+				if(cx + 1 < N && cy + 1 < N && map[cx+1][cy+1] == 0 && map[cx+1][cy] == 0 && map[cx][cy+1] == 0)
 					q.add(new Pipe(cx+1, cy+1, 'd')); // 대각선 이동
 				break;
 			case 'v': // 세로
 				if(cx + 1 < N && map[cx+1][cy] == 0)  // 세로 이동
 					q.add(new Pipe(cx+1, cy, 'v'));
 				
-				if(cx + 1 < N || cy + 1 < N && map[cx+1][cy+1] == 0 && map[cx+1][cy] == 0 && map[cx][cy+1] == 0)
+				if(cx + 1 < N && cy + 1 < N && map[cx+1][cy+1] == 0 && map[cx+1][cy] == 0 && map[cx][cy+1] == 0)
 					q.add(new Pipe(cx+1, cy+1, 'd')); // 대각선 이동
 				break;
 			case 'd': // 대각선
+				
 				if(cy + 1 < N && map[cx][cy+1] == 0)  // 가로 이동
 					q.add(new Pipe(cx, cy + 1, 'h'));
+				
 				if(cx + 1 < N && map[cx+1][cy] == 0)  // 세로 이동
 					q.add(new Pipe(cx+1, cy, 'v'));
-				if(cx + 1 < N || cy + 1 < N && map[cx+1][cy+1] == 0 && map[cx+1][cy] == 0 && map[cx][cy+1] == 0)
+				if(cx + 1 < N && cy + 1 < N && map[cx+1][cy+1] == 0 && map[cx+1][cy] == 0 && map[cx][cy+1] == 0)
 					q.add(new Pipe(cx+1, cy+1, 'd')); // 대각선 이동	
 				break;
-			}
-			
+			}		
 		}
 	}
-
-	
 }
