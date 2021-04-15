@@ -40,7 +40,7 @@ public class boj_15663_back {
 	//nPm : 모든 수열 경우의 수
 	static void permutation(int idx) {
 		// 기저조건
-		if(idx==M) { 
+		if(idx==M) {
 			sqSet.add(arrayToString(sub)); // Set에 저장해 중복 제거
 			return;
 		}
