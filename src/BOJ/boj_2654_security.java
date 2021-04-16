@@ -45,27 +45,12 @@ public class boj_2654_security {
 			} else map[r][c] = i;
 		}		
 		// 각 상점에 대한 최단거리 구하기
+		int len = 0, round = (R+C) * 2;
 		for (int i = 1; i <= N; i++) {
-			sum += Math.min(moveRight(i), moveLeft(i));	
+			len = moveRight(i);
+			sum += Math.min(len, round - len);	
 		}
 		System.out.println(sum);
-	}
-
-	private static int moveLeft(int i) { // i번 상점을 좌회전하며 탐색
-		int dist = 0, r = sr, c = sc, d = (rd + 2) % 4; // 반대 방향으로 전환
-		
-		while(true) {
-			// 이동
-			r += dx[d]; c += dy[d]; dist++;
-			// 도착시 종료
-			if(map[r][c] == i) break;
-						
-			// 꼭짓점이면
-			if((d == 0 && c == C) || (d == 1 && r == R) || 
-			   (d == 2 && c == 0) || (d == 3 && r == 0) )
-				d = (d+3) % 4; // 좌회전 방향변경
-		}
-		return dist;
 	}
 
 	private static int moveRight(int i) { // i번 상점을 우회전하며 탐색
