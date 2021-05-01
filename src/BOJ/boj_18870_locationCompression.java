@@ -21,7 +21,7 @@ public class boj_18870_locationCompression {
 		
 		int cnt = 0;
 		int pre = Integer.MIN_VALUE;
-		for (int i = 0; i < N-1; i++) {
+		for (int i = 0; i < N; i++) {
 			if(pre < tmp[i]) {
 				map.put(tmp[i], cnt++);
 				pre = tmp[i];
