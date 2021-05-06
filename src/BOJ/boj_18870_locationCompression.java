@@ -33,4 +33,39 @@ public class boj_18870_locationCompression {
 		}
 		System.out.println(out.toString());		
 	}
+	
+	// 이진탐색 
+	static int N;
+	static int sorted[];
+	
+	static int upperBound(int key) {
+	    int left = 0;
+	    int right = N-1;
+	    int res = N; // default 값 중요
+	    while (left <= right) {
+	        int mid = (left + right) / 2;
+	        if (key < sorted[mid]) {
+	            right = mid - 1;
+	            res = mid;
+	        } else {
+	            left = mid + 1;
+	        }
+	    }
+	    return res;
+	}
+	static int lowerBound(int key) {
+	    int left = 0;
+	    int right = N-1;
+	    int res = N; // default 값 중요
+	    while (left <= right) {
+	        int mid = (left + right) / 2;
+	        if (key <= sorted[mid]) {
+	            right = mid - 1;
+	            res = mid;
+	        } else {
+	            left = mid + 1;
+	        }
+	    }
+	    return res;
+	}
 }
