@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class pg_graph_FarthestNode {
-	// 이분탐색 예산
+
 	public static void main(String[] args) {
 		int[][] a = {{3, 6}, {4, 3}, {3, 2}, {1, 3}, {1, 2}, {2, 4}, {5, 2}};
     	System.out.println(new pg_graph_FarthestNode().solution(6, a) );
