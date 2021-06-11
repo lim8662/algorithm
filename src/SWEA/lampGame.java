@@ -12,6 +12,26 @@ public class lampGame {
 	static char[][] map;
 	static int[][] dp;
 	static int sx, sy, ex, ey;
+	static int h = 4;
+	static int w = 5;
+	
+	int setBit(int state, int y, int x)
+	{
+		int index = y * w + x;
+		state |= (1 << index);
+		return state;
+	}
+	int clearBit(int state, int y, int x)
+	{
+		int index = y * w + x;
+		state &= ~(1 << index);
+		return state;
+	}
+	int isSet(int state, int y, int x)
+	{
+		int index = y * w + x;
+		return (state >> index) & 0x1;
+	}
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		System.setIn(new FileInputStream("src/SWEA/mario.txt"));
@@ -49,7 +69,7 @@ public class lampGame {
 		int east = getDist(x, y+1);
 		int west = getDist(x, y-1);
 		int south = getDist(x+1, y);
-		int north = getDist(x-1, y);
+		int north = getDist(x-1, y);	
 		
 		int temp = Math.min(east, west);
 		int temp2 = Math.min(south, north);
