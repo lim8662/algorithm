@@ -13,35 +13,44 @@ public class boj_11723_set {
 		StringBuilder out = new StringBuilder();
 		boolean[] set = new boolean[21];
 
-		for (int i = 0; i < N; i++) { // 간선 정보 입력
+		for (int i = 0; i < N; i++) { 
 			in = new StringTokenizer(br.readLine());
-			for (int j = 0; j < N; j++) {
-				String cmd = in.nextToken();
-				int x = Integer.parseInt(in.nextToken());
+			String cmd = in.nextToken();
+			int x = 0;
+			if(in.countTokens() > 0) {
+				x = Integer.parseInt(in.nextToken());
+			}
+			switch (cmd) {
+			case "add":
+				if (!set[x])
+					set[x] = true;
+				break;
+			case "remove":
+				if (set[x])
+					set[x] = false;
+				break;
+			case "check":
+				if (set[x])
+					out.append(1).append('\n');
+				else
+					out.append(0).append('\n');
+				break;
+			case "toggle":
+				if (!set[x])
+					set[x] = true;
+				else
+					set[x] = false;
+				break;
+			case "all":
+				Arrays.fill(set, true);
+				break;
+			case "empty":
+				Arrays.fill(set, false);
+				break;
 
-				switch (cmd) {
-				case "add":
-					if(!set[x]) set[x] = true;
-					break;
-				case "remove":
-					if(set[x]) set[x] = false;
-					break;
-				case "check":
-					if(set[x]) out.append(1).append('\n');
-					else out.append(0).append('\n');
-					break;
-				case "toggle":
-					
-					break;
-				case "all":
-
-					break;
-				case "empty":
-
-					break;
-				}
 			}
 		}
+		System.out.println(out.toString());
 
 	}
 }
