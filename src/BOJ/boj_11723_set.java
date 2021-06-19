@@ -11,7 +11,7 @@ public class boj_11723_set {
 		StringTokenizer in = null;
 		int N = Integer.parseInt(br.readLine()); // 연산 수
 		StringBuilder out = new StringBuilder();
-		int bit;
+		int bit = 0;
 
 		for (int i = 0; i < N; i++) { 
 			in = new StringTokenizer(br.readLine());
@@ -27,8 +27,8 @@ public class boj_11723_set {
 			case "remove":
 				bit &= ~(1 << x);
 				break;
-			case "check":
-				if (bit & ( 1 << x))
+			case "check":			 
+				if ((bit & (1 << x)) != 0)
 					out.append(1).append('\n');
 				else
 					out.append(0).append('\n');
