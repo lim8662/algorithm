@@ -11,7 +11,7 @@ public class boj_11723_set {
 		StringTokenizer in = null;
 		int N = Integer.parseInt(br.readLine()); // 연산 수
 		StringBuilder out = new StringBuilder();
-		boolean[] set = new boolean[21];
+		int bit;
 
 		for (int i = 0; i < N; i++) { 
 			in = new StringTokenizer(br.readLine());
@@ -22,30 +22,25 @@ public class boj_11723_set {
 			}
 			switch (cmd) {
 			case "add":
-				if (!set[x])
-					set[x] = true;
+				bit |= (1 << x);
 				break;
 			case "remove":
-				if (set[x])
-					set[x] = false;
+				bit &= ~(1 << x);
 				break;
 			case "check":
-				if (set[x])
+				if (bit & ( 1 << x))
 					out.append(1).append('\n');
 				else
 					out.append(0).append('\n');
 				break;
 			case "toggle":
-				if (!set[x])
-					set[x] = true;
-				else
-					set[x] = false;
+				bit ^= (1 << x);
 				break;
 			case "all":
-				Arrays.fill(set, true);
+				bit = (1 << 21) - 1;
 				break;
 			case "empty":
-				Arrays.fill(set, false);
+				bit = 0;
 				break;
 
 			}
