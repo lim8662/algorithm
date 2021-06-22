@@ -4,12 +4,35 @@ import java.io.*;
 import java.util.*;
 
 public class boj_17626_FourSquares {
-	// 10분 설계 20분 구현
+	// 10분 설계 20분 구현 -greedy
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine()); // 연산 수
+		int N = Integer.parseInt(br.readLine()); 
+		
+		brute(N);
+		dp(N);
+		
+	}
+
+	private static void dp(int n) {
+		int[] dp = new int[n+1];
+		
+		dp[0] = 0; dp[1] = 1;
+		
+		for (int i = 2; i <= n; i++) {
+			int min = 100000;
+			for (int j = 1; j*j < i; j++) {
+				min = Math.min(min, dp[i-j*j]);
+			}
+			dp[i] = min + 1;
+		}
+		System.out.println(dp[n]);
+		
+	}
+
+	private static void brute(int n) {
 		int[] min = new int[50001];
 		int sqn = 0;
 		int max = 0;
@@ -40,7 +63,7 @@ public class boj_17626_FourSquares {
 			if( min[sqn] == 0 ) min[sqn] = 3;
 		}
 		
-		if(min[N] == 0) System.out.println(4);
-		else System.out.println(min[N]);
+		if(min[n] == 0) System.out.println(4);
+		else System.out.println(min[n]);
 	}
 }
