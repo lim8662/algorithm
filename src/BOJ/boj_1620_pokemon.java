@@ -8,6 +8,7 @@ public class boj_1620_pokemon {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder out = new StringBuilder();
 		int N = Integer.parseInt(st.nextToken()); // 도감 수
 		int M = Integer.parseInt(st.nextToken()); // 문제 수
 		String[] names =  new String[N+1];
@@ -22,12 +23,14 @@ public class boj_1620_pokemon {
 		
 		for (int i = 0; i < M; i++) { // 문제 입력 받기
 			String quiz =  br.readLine();
-			if(Character.isDigit(quiz.charAt(0))) { // 숫자면
+			System.out.println(quiz.charAt(0) - 0);
+			if(quiz.charAt(0) < 65) { // 숫자면(유니코드 48~57숫자 65~90대문자 97~소문자) 
 				int num = Integer.parseInt(quiz);
-				System.out.println(names[num]); // 이름 출력
+				out.append(names[num]).append("\n"); // 이름 출력
 			} else { // 문자면
-				System.out.println(map.get(quiz)); // 번호 출력
+				out.append(map.get(quiz)).append("\n"); // 번호 출력
 			}
 		}
+		System.out.println(out.toString());
 	}
 }
