@@ -17,6 +17,7 @@ public class boj_17219_map {
 			st = new StringTokenizer(br.readLine());
 			map.put(st.nextToken(), st.nextToken());
 		}
+		
 		String site = null;
 		for (int i = 0; i < M; i++) { // 비밀번호 찾기
 			site =  br.readLine();
