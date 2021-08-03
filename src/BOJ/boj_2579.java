@@ -16,7 +16,8 @@ public class boj_2579 {
 			stairs[i] = Integer.parseInt(br.readLine()); // 계단 점수 입력(1~1만)
 		}
 		// 1~2칸 이동 가능, 3연속 1칸은 불가능, 마지막 계단에 도착
-	
+		
+		
 		System.out.println(ans);
 	}
 	
