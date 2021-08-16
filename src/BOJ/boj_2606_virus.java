@@ -35,6 +35,7 @@ public class boj_2606_virus {
 	
 	public static void infect(int n) {
 		
+
 		for (int i = 1; i <= N; i++) {
 			if(edge[n][i] && !visited[i]) {
 				visited[i] = true;
